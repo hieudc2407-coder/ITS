@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Illegal Parking Detection System - Modern SaaS Dashboard">
+  <title>Illegal Parking Detection System</title>
+  
+  <link rel="stylesheet" href="./src/styles/dashboard-redesigned.css">
+</head>
+<body class="bg-zinc-950 text-white">
+  <div class="dashboard-container">
+    <!-- Top Header -->
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="header-title-group">
+          <h1 class="header-title">ILLEGAL PARKING DETECTION SYSTEM</h1>
+        </div>
+        <div class="header-status">
+          <span class="status-badge">LIVE MONITORING</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- Left Panel: Camera Feed -->
+      <section class="camera-section">
+        <!-- Camera Feed Header with Status -->
+        <div class="feed-header">
+          <div class="feed-title-group">
+            <h2 class="feed-title">CAMERA FEED</h2>
+            <div class="status-indicator pulsing-green">
+              <span class="pulse-dot"></span>
+              <span class="status-text">Camera ID: CAM-01 | FPS: 30 | Status: Online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Stream Container -->
+        <div class="video-container">
+          <div class="video-bezel">
+            <video-placeholder class="video-placeholder">
+              VIDEO STREAM
+            </video-placeholder>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: Data & Actions Sidebar -->
+      <aside class="data-sidebar">
+        <!-- License Plate Card -->
+        <div class="data-card">
+          <div class="card-label">LICENSE PLATE</div>
+          <div class="card-value">NO PLATE IMAGE</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+          <button class="btn btn-primary" aria-label="View violation details">
+            VIEW DETAILS
+          </button>
+          <button class="btn btn-secondary" aria-label="Take snapshot">
+            SNAPSHOT
+          </button>
+          <button class="btn btn-alert" aria-label="Send alert">
+            ALERT
+          </button>
+        </div>
+
+        <!-- Evidence Image Card -->
+        <div class="data-card">
+          <div class="card-label">EVIDENCE IMAGE</div>
+          <div class="card-value">NO EVIDENCE IMAGE</div>
+        </div>
+
+        <!-- Location Card -->
+        <div class="data-card">
+          <div class="card-label">LOCATION</div>
+          <div class="card-value">Block A - Gate 2</div>
+        </div>
+
+        <!-- Time Card -->
+        <div class="data-card">
+          <div class="card-label">TIME</div>
+          <div class="card-value">08:15:32</div>
+        </div>
+
+        <!-- Current Status Card -->
+        <div class="data-card">
+          <div class="card-label">CURRENT STATUS</div>
+          <div class="card-value status-alert">ILLEGAL PARKING DETECTED</div>
+        </div>
+
+        <!-- System Status Card -->
+        <div class="data-card">
+          <div class="card-label">SYSTEM STATUS</div>
+          <div class="card-value-sm">System Online</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Violation Details Modal -->
+  <div class="modal-backdrop" id="violationModal" hidden>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title">VIOLATION DETAILS</h2>
+      </div>
+
+      <div class="modal-content">
+        <!-- Violation Section -->
+        <div class="modal-section">
+          <div class="section-label">VIOLATION</div>
+          <div class="section-value">Parking in Emergency Lane</div>
+        </div>
+
+        <!-- Traffic Sign Section -->
+        <div class="modal-section">
+          <div class="section-label">TRAFFIC SIGN</div>
+          <div class="section-value">NO PARKING</div>
+        </div>
+
+        <!-- Restricted Zone Section -->
+        <div class="modal-section">
+          <div class="section-label">RESTRICTED ZONE</div>
+          <div class="section-value">Emergency Lane</div>
+        </div>
+
+        <!-- Detection Result Section -->
+        <div class="modal-section">
+          <div class="section-label">DETECTION RESULT</div>
+          <div class="detection-list">
+            <div class="detection-item">
+              <span class="checkmark">✓</span>
+              <span>Vehicle Detected</span>
+            </div>
+            <div class="detection-item">
+              <span class="checkmark">✓</span>
+              <span>Plate Detected</span>
+            </div>
+            <div class="detection-item">
+              <span class="checkmark">✓</span>
+              <span>Traffic Sign Detected</span>
+            </div>
+            <div class="detection-item">
+              <span class="checkmark">✓</span>
+              <span>Illegal Parking Confirmed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-close" aria-label="Close modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/dashboard.ts"></script>
+</body>
+</html>
