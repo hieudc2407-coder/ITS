@@ -1,8 +1,19 @@
+# =========================
 # Environment variables
+# =========================
 .env
-.env.local
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
 
+# =========================
 # Python
+# =========================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -24,34 +35,94 @@ wheels/
 .installed.cfg
 *.egg
 
+# =========================
 # Virtual environments
+# =========================
+.venv/
 venv/
 ENV/
 env/
 
-# IDE
+# =========================
+# Node / Frontend
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+.nuxt/
+dist/
+build/
+coverage/
+.vite/
+
+# =========================
+# IDE / Editor
+# =========================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# OS
+# =========================
+# OS files
+# =========================
 .DS_Store
 Thumbs.db
+desktop.ini
 
+# =========================
 # Logs
+# =========================
 logs/
 *.log
 
-# Data files
+# =========================
+# Local data
+# =========================
 data/videos/
 data/images/
 data/evidence/
+backend/data/*.db
+backend/data/*.db-shm
+backend/data/*.db-wal
+backend/data/*.db-journal
+!backend/data/.gitkeep
+
+# =========================
+# AI / Model files
+# =========================
 data/models/*.pth
 data/models/*.pkl
 data/models/*.h5
+*.pt
+*.onnx
+*.engine
 
+# =========================
 # Database
+# =========================
 *.db
 *.sqlite
+*.sqlite3
+
+# =========================
+# Test / cache
+# =========================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Uploaded / generated files
+# =========================
+uploads/
+evidence/
+screenshots/
+temp/
+tmp/
