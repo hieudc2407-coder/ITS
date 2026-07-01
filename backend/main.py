@@ -9,8 +9,10 @@ from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 
 from app.api import routes
+from app.api.routes.database_health import router as database_health_router
 from app.core.config import settings
 
+from app.api.vehicles import router as vehicles_router
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -44,7 +46,19 @@ if static_dir.exists():
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 # Include routes
-app.include_router(routes.router)
+# app.include_router(routes.router)
+
+app.include_router(
+    database_health_router,
+    prefix="/api/health",
+    tags=["Health"],
+)
+
+app.include_router(
+    vehicles_router,
+    prefix="/api",
+    tags=["Vehicles"],
+)
 
 
 @app.on_event("startup")
